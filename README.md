@@ -34,3 +34,61 @@ Se parte del supuesto de que la tabla `books` tiene una columna `id` como `prima
 
 
 ## Pregunta 3: Indices multinivel
+
+Para este problema el objetivo es generar una estructura de datos a partir de un listado de documentos (diccionarios) con llaves con strings y valores simples (no con diccionarios anidados) el objetivo es crear una función que tome este listado y un listado con llaves de los documentos y genere un diccionario nuevo que agrupe los datos por los valores de esas llaves.
+
+Un ejemplo de su uso sería:
+```python
+def multilevel_index(documents, keys):
+    """Implementación"""
+
+objects = [
+    {
+        "age": 12,
+        "name": "Mateo",
+        "last_name": "González",
+    }, 
+    {
+        "age": 25,
+        "name": "Arturo",
+        "last_name": "González",
+    }, 
+    {
+        "age": 12,
+        "name": "Julián",
+        "last_name": "Fernández",
+    },
+]
+
+multilevel_index(objects, ["age", "last_name"])
+# Retornará 
+{
+    12: {
+        "González": [
+                {
+                    "age": 12,
+                    "name": "Mateo",
+                    "last_name": "González",
+                }
+        ],
+        "Fernández": [  
+                {
+                    "age": 12,
+                    "name": "Julián",
+                    "last_name": "Fernández",
+                }
+        ],
+    },
+    25: {
+        "González": [
+            {
+                "age": 25,
+                "name": "Arturo",
+                "last_name": "González",
+            },
+        ]
+    }
+}
+                            
+```
+
